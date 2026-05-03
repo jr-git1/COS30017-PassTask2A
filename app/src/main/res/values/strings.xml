@@ -4,4 +4,12 @@
     <string name="localfountain">LocalFountain</string>
     <string name="ruraltown">RuralTown</string>
     <string name="suburbia">Suburbia</string>
+    <string name="name">Name: </string>
+    <string name="state">State: </string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="date">Date Last Visited: </string>
+
+
+
 </resources>

@@ -25,6 +25,9 @@ class DetailActivity : ComponentActivity() {
             val vName = findViewById<TextView>(R.id.name)
             vName.text = it.name
 
+            val vState = findViewById<TextView>(R.id.state)
+            vState.text = it.state
+
             val vRating = findViewById<RatingBar>(R.id.rating)
             vRating.rating = it.rating
 
@@ -33,6 +36,9 @@ class DetailActivity : ComponentActivity() {
 
             val vLon = findViewById<TextView>(R.id.longitude)
             vLon.text = it.longitude.toString()
+
+            val vDate = findViewById<TextView>(R.id.date)
+            vDate.text = it.date
         }
     }
 }
