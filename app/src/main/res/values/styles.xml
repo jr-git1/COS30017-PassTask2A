@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="GreenText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">#45B051</item>
+
+    <style name="defaultText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#7700FF</item>
     </style>
 
     <style name="AppBackground">

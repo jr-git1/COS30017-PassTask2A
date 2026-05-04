@@ -9,6 +9,25 @@
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
     <string name="date">Date Last Visited: </string>
+    <string name="spinner_title">Select State: </string>
+    <string name="rating">Rating: </string>
+
+
+    <string-array name="states_array">
+        <item>ALL</item>
+        <item>VIC</item>
+        <item>QLD</item>
+        <item>NSW</item>
+    </string-array>
+
+    <string name="check">Hidden Information</string>
+    <string name="msg">Suburbs are the best!</string>
+
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="default_color">Default</string>
+    <string name="select_color">Select a Color: </string>
 
 
 
