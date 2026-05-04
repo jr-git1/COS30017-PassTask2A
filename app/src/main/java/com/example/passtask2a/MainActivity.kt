@@ -64,14 +64,14 @@ class MainActivity : ComponentActivity() {
 
         //RadioButton group used to change the color of the text
         val group = findViewById<RadioGroup>(R.id.colorGroup)
-            group.setOnCheckedChangeListener { group, checkedId ->
-                when (checkedId) {
-                    R.id.defaultColorBtn -> names.forEach {it.setTextColor(defaultColor)}
-                    R.id.redBtn -> names.forEach {it.setTextColor(android.graphics.Color.RED)}
-                    R.id.greenBtn -> names.forEach {it.setTextColor(android.graphics.Color.GREEN)}
-                    R.id.blueBtn -> names.forEach { it.setTextColor(android.graphics.Color.BLUE)}
-                }
+        group.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.defaultColorBtn -> names.forEach {it.setTextColor(defaultColor)}
+                R.id.redBtn -> names.forEach {it.setTextColor(android.graphics.Color.RED)}
+                R.id.greenBtn -> names.forEach {it.setTextColor(android.graphics.Color.GREEN)}
+                R.id.blueBtn -> names.forEach { it.setTextColor(android.graphics.Color.BLUE)}
             }
+        }
 
         //Checkbox
         val checkbox = findViewById<CheckBox>(R.id.checkbox)
