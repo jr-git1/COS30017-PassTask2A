@@ -29,6 +29,9 @@
     <string name="default_color">Default</string>
     <string name="select_color">Select a Color: </string>
 
-
-
+    <string name="hint_name">Name</string>
+    <string name="hint_state">State</string>
+    <string name="hint_longitude">Longitude</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_date">Date</string>
 </resources>
