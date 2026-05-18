@@ -13,19 +13,29 @@ import android.widget.RatingBar
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : ComponentActivity() {
+    private lateinit var locations: MutableList<Location>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
 
         //Data list
-        val locations = listOf(
-            Location("City", -38.813, 144.963, "VIC", 1.5F, "25/08/2003", R.drawable.city),
-            Location("Fountain", -37.831, 144.984, "NSW", 4.0F, "29/02/2008", R.drawable.localfountain),
-            Location("Rural Town", 36.761, 144.282, "VIC", 3.5F, "14/04/2006", R.drawable.ruraltown),
-            Location("Suburb", 37.7308, 144.928, "QLD", 5.0F, "06/11/2010", R.drawable.suburbia)
-        )
+        if (savedInstanceState != null) {
+
+            locations =
+                savedInstanceState.getParcelableArrayList("locations")!!
+
+        } else {
+
+            locations = mutableListOf(
+                Location("City", -38.813, 144.963, "VIC", 1.5F, "25/08/2003", R.drawable.city),
+                Location("Fountain", -37.831, 144.984, "NSW", 4.0F, "29/02/2008", R.drawable.localfountain),
+                Location("Rural Town", 36.761, 144.282, "VIC", 3.5F, "14/04/2006", R.drawable.ruraltown),
+                Location("Suburb", 37.7308, 144.928, "QLD", 5.0F, "06/11/2010", R.drawable.suburbia)
+            )
+        }
 
         //Resources Lists
         val images = listOf(
@@ -88,6 +98,30 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+
+        var selectedIndex = -1
+
+        val detailLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+
+            if (result.resultCode == RESULT_OK) {
+
+                val updatedLocation =
+                    result.data?.getParcelableExtra<Location>("location")
+
+                if (updatedLocation != null && selectedIndex != -1) {
+
+                    locations[selectedIndex] = updatedLocation
+
+                    // Refresh UI
+                    names[selectedIndex].text = updatedLocation.name
+                    ratings[selectedIndex].rating = updatedLocation.rating
+                    images[selectedIndex].setImageResource(updatedLocation.imageResId)
+                }
+            }
+        }
+
         //Filter based on state selected
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -116,9 +150,11 @@ class MainActivity : ComponentActivity() {
 
                         //Listener for when the image is clicked and send data to DetailActivity using intent
                         images[i].setOnClickListener {
+                            selectedIndex = i
                             val intent = Intent(this@MainActivity, DetailActivity::class.java)
                             intent.putExtra("location", filteredLocations[i])
-                            startActivity(intent)
+
+                            detailLauncher.launch(intent)
                             Log.d("Image Click", "Image has been pressed, Data parsed to DetailActivity")
                         }
                     } else {
@@ -135,5 +171,15 @@ class MainActivity : ComponentActivity() {
                 // Another interface callback.
             }
         }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(
+            "locations",
+            ArrayList(locations)
+        )
+    }
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

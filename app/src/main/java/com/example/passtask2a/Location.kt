@@ -4,10 +4,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Location (
-    val name: String,
-    val latitude: Double,
-    val longitude: Double,
-    val state: String,
-    val rating: Float,
-    val date: String,
-    val imageResId: Int) : Parcelable
+    var name: String,
+    var latitude: Double,
+    var longitude: Double,
+    var state: String,
+    var rating: Float,
+    var date: String,
+    var imageResId: Int) : Parcelable

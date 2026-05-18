@@ -27,11 +27,15 @@
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
-        <TextView
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+        <EditText
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="@+id/name"
+            android:inputType="text"
+            android:hint="@string/hint_name"
             android:padding="16dp"/>
 
         <TextView
@@ -40,11 +44,15 @@
             android:layout_height="wrap_content"
             android:text="@string/state"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
-        <TextView
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+        <EditText
             android:id="@+id/state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="@+id/state"
+            android:inputType="text"
+            android:hint="@string/hint_state"
             android:padding="16dp"/>
 
         <TextView
@@ -53,11 +61,15 @@
             android:layout_height="wrap_content"
             android:text="@string/latitude"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
-        <TextView
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+        <EditText
             android:id="@+id/latitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="@+id/latitude"
+            android:inputType="text"
+            android:hint="@string/hint_latitude"
             android:padding="16dp"/>
 
         <TextView
@@ -66,11 +78,15 @@
             android:layout_height="wrap_content"
             android:text="@string/longitude"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
-        <TextView
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+        <EditText
             android:id="@+id/longitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="@+id/longitude"
+            android:inputType="text"
+            android:hint="@string/hint_longitude"
             android:padding="16dp"/>
 
         <TextView
@@ -79,11 +95,15 @@
             android:layout_height="wrap_content"
             android:text="@string/date"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
-        <TextView
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+        <EditText
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="@+id/date"
+            android:inputType="date"
+            android:hint="@string/hint_date"
             android:padding="16dp"/>
 
         <TextView
@@ -92,10 +112,11 @@
             android:layout_height="wrap_content"
             android:text="@string/rating"
             android:textStyle="bold"
-            android:paddingStart="8dp"/>
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"/>
+
         <RatingBar
             android:id="@+id/rating"
-            android:isIndicator="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
